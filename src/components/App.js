@@ -3,7 +3,7 @@ import TransactionTable from './TransactionTable';
 import AddTransactionForm from './AddTransactionForm';
 import SearchBar from './SearchBar';
 import { transactions as initialTransactions } from '../Data';
-
+//app
 const App = () => {
   const [transactions, setTransactions] = useState(initialTransactions);
   const [searchTerm, setSearchTerm] = useState('');

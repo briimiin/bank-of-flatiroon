@@ -1,7 +1,14 @@
 import React from 'react';
 
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Adding 1 because months are zero-based
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
 
-const TransactionTable = ({transactions}) => (
+const TransactionTable = ({ transactions }) => (
   <div>
     <table className="transaction-table">
       <thead>
@@ -15,7 +22,7 @@ const TransactionTable = ({transactions}) => (
       <tbody>
         {transactions.map((transaction, index) => (
           <tr key={index}>
-            <td>{transaction.date}</td>
+            <td>{formatDate(transaction.date)}</td> {/* Format the date here */}
             <td>{transaction.description}</td>
             <td>{transaction.category}</td>
             <td>{transaction.amount}</td>
